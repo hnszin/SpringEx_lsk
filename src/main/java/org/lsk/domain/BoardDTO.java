@@ -1,5 +1,7 @@
 package org.lsk.domain;
 
+import java.util.ArrayList;
+
 public class BoardDTO{
 	
 	// Model
@@ -12,7 +14,15 @@ public class BoardDTO{
 	private int cnt;
 	private int good;
 	
+	//AttachDTO 포함
+	private ArrayList <AttachDTO> attachList;
 	
+	public ArrayList<AttachDTO> getAttachList() {
+		return attachList;
+	}
+	public void setAttachList(ArrayList<AttachDTO> attachList) {
+		this.attachList = attachList;
+	}
 	public int getBno() {
 		return bno;
 	}
@@ -60,7 +70,7 @@ public class BoardDTO{
 	@Override
 	public String toString() {
 		return "BoardDTO [bno=" + bno + ", title=" + title + ", content=" + content + ", writer=" + writer
-				+ ", regdate=" + regdate + ", cnt=" + cnt + ", good=" + good + "]";
+				+ ", regdate=" + regdate + ", cnt=" + cnt + ", good=" + good + ", attachList=" + attachList + "]";
 	}
 	
 }
