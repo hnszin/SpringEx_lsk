@@ -130,9 +130,9 @@ public class UploadController {
 		}
 		for(MultipartFile multiparFile : uploadFile) { // uploadFile의 매개변수에 저장된 배열을 multipartFile에 대입하여 순서대로 출력
 			
-			//UploadController에 있는 uploadAjaxAction에서 AttackDTO를 사용해서 값을 저장해야되는데,
-			//이럴 경우 UploadController에 AttackDTO가 없으면 사용을 할수가 없다.
-			//그래서 UploadController에 AttackDTO를 포함시켜서 사용해야함.
+			//UploadController에 있는 uploadAjaxAction에서 AttachDTO를 사용해서 값을 저장해야되는데,
+			//이럴 경우 UploadController에 AttachDTO가 없으면 사용을 할수가 없다.
+			//그래서 UploadController에 AttachDTO를 포함시켜서 사용해야함.
 			AttachDTO attachdto = new AttachDTO();
 			
 			System.out.println(multiparFile);

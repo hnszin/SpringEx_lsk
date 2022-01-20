@@ -36,12 +36,12 @@ $(document).ready(function() {
 			 * $("span").data("age",13) => <span data-age="13"> data힘수 괄호안에 매개변수가 두개면 setter
 			 * <span data-age="13">
 			 * $("span").data("age") => data함수 괄호안에 매개변수가 하나면 getter*/
-			str+="<input type='text' name='attachList'["+i+"].fileName' value='"+$(obj).data("filename")+"'>"
-			str+="<input type='text' name='attachList'["+i+"].uuid' value='"+$(obj).data("uuid")+"'>"
-			str+="<input type='text' name='attachList'["+i+"].uploadPath' value='"+$(obj).data("path")+"'>"
-			str+="<input type='text' name='attachList'["+i+"].image' value='"+$(obj).data("type")+"'>"
+			str+="<input type='text' name='attachList["+i+"].fileName' value='"+$(obj).data("filename")+"'>"
+			str+="<input type='text' name='attachList["+i+"].uuid' value='"+$(obj).data("uuid")+"'>"
+			str+="<input type='text' name='attachList["+i+"].uploadPath' value='"+$(obj).data("path")+"'>"
+			str+="<input type='text' name='attachList["+i+"].image' value='"+$(obj).data("type")+"'>"
 		})
-		formObj.append(str);
+		formObj.append(str).submit();
 		
 		
 		
@@ -96,7 +96,7 @@ function showUploadedFile(uploadresultArr){
 		if(!obj.image){
 			var fileCallPath=encodeURIComponent(obj.uploadPath+obj.uuid+"_"+obj.fileName)	//endcodeURIComponent:URI로 데이터를 전달하기 위해서 문자열을 인코딩
 			str+="<li data-path='"+obj.uploadPath+"'";
-			str+="data-uuid='"+obj.uuid+"' data-filename='"+obj.fileName+"'data-type'"+obj.image+"'>";
+			str+="data-uuid='"+obj.uuid+"' data-filename='"+obj.fileName+"'data-type='"+obj.image+"'>";
 			str+="<li><a href='download?fileName="+fileCallPath+"'>"+obj.fileName+"</a></li>"
 		
 		}else{// 사용자가 업로드 한 파일의 타입이 이미지이면 (.jpg, .png, .gif)
@@ -104,7 +104,7 @@ function showUploadedFile(uploadresultArr){
 			console.log(fileCallPath)
 				// img태그를  사용해서 웹브라우저에 이미지 출력
 			str+="<li data-path='"+obj.uploadPath+"'";
-			str+="data-uuid='"+obj.uuid+"' data-filename='"+obj.fileName+"'data-type'"+obj.image+"'>";
+			str+="data-uuid='"+obj.uuid+"' data-filename='"+obj.fileName+"'data-type='"+obj.image+"'>";
 			str+="<img src='/display?fileName="+fileCallPath+"'></li>"
 		}
 	})

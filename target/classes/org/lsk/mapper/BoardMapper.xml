@@ -6,6 +6,15 @@
 	<insert id="write">
 		insert into board(title,content, writer)values(#{title},#{content},#{writer})
 	</insert>
+	
+	<!-- board테이블에 insert하기 전에 bno값을 미리 만들어놓고 insert를 해야함 -->
+	<insert id="insertSelectKey">
+		<selectKey keyProperty="bno" order="BEFORE" resultType="int">
+			select max(bno)+1 bno from board
+		</selectKey>
+			insert into board(bno,title,content, writer)values(#{bno},#{title},#{content},#{writer})
+	</insert>
+
 	<select id="list" resultType="org.lsk.domain.BoardDTO">
 		select * from (select @rownum:=@rownum+1 as rownum, b.* from(select @rownum:=0) as tmp, board as b
 		<!-- oracle '%'||#{keyword}||'%' -->

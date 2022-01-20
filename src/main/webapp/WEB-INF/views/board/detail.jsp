@@ -32,20 +32,24 @@
 		<div class="col-sm-12 mb-3 mb-sm-0">${detail.title}</div>
 
 		<div class="col-sm-12 mb-3 mb-sm-0">${detail.content}</div>
+		
+		<!--이미지 공간 -->
+		<div id="uploadResult" class="col-sm-12 mb-3 mb-sm-0">
+			<ul></ul>
+		</div>
 		<div class="col-sm-12 mb-3 mb-sm-0">
-			<a href="modify?bno=${detail.bno}">수정</a> <a
-				href="remove?bno=${detail.bno}">삭제</a>
+			<a href="modify?bno=${detail.bno}">수정</a> 
+			<a href="remove?bno=${detail.bno}">삭제</a>
 		</div>
 		<!-- .panel-body -->
 		<div class="panel-body">
 			<!-- Button trigger modal -->
 			<button id="addReplyBtn" class="btn btn-primary btn-lg"
-				data-toggle="modal" data-target="#myModal">댓글달기</button>
+				data-toggle="modal" data-target="#myModal">댓글달기
+			</button>
 
 			<div>
-				<ul id="relist">
-
-				</ul>
+				<ul id="relist"></ul>
 			</div>
 
 			<!-- Modal -->

@@ -9,6 +9,9 @@ public interface BoardMapper {
 	// 게시판 글쓰기와 관련이 되어 있는 DB작업 설계 
 	public void write(BoardDTO b);
 	
+	// 게시판 글쓰기와 관련이 되어 있는 DB작업 설계 
+	public void insertSelectKey(BoardDTO b);
+	
 	// 게시판 목록리스트와 관련이 되어 있는 DB작업 설계
 	public ArrayList<BoardDTO> list(Criteria cri);
 	

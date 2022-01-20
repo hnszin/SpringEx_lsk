@@ -1,14 +1,21 @@
 
 package com.lsk.controller;
+import java.util.ArrayList;
+
+import org.lsk.domain.AttachDTO;
 import org.lsk.domain.BoardDTO;
 import org.lsk.domain.Criteria;
 import org.lsk.domain.PageDTO;
 import org.lsk.service.BoardService;
 import org.lsk.service.BoardServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -29,7 +36,11 @@ public class BoardController {
 	
 	//글쓰기 버튼을 클릭하면
 	@PostMapping("write")
-	public String PostWrite(BoardDTO b){ 
+	public String PostWrite(BoardDTO b){
+		
+		//System.out.println("aaaa");
+		System.out.println("BoardDTO="+b);
+		
 		// 메모리 사용이 효율적이지 않기에 참조변수를 직접 입력하지 않고 model을 사용함.
 		// sql 테이블을 작성하고 활용해서 model을 만듦, table == model(class 객체)
 		
@@ -52,6 +63,15 @@ public class BoardController {
 	public void detail(BoardDTO b, Model model) {
 		model.addAttribute("detail", service.detail(b));
 	}
+	
+	// 게시판 상세페이지에서 이미지를 출력하기 위한 select한 결과를 javascript로...
+	@GetMapping(value="fileList/{bno}", produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public ResponseEntity<ArrayList<AttachDTO>> fileList(@PathVariable int bno){
+		System.out.println("fileList");
+		return new ResponseEntity<>(service.fileList(bno),HttpStatus.OK);
+	}
+	
+	// 글 수정화면으로...
 	@GetMapping("modify")
 	public void GetModify(BoardDTO b, Model model) {
 		model.addAttribute("detail", service.detail(b));
