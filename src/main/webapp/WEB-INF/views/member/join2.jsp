@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -86,14 +88,14 @@
 </head>
 <body>
 <div class="signup-form">
-    <form action="/examples/actions/confirmation.php" method="post" class="form-horizontal">
+    <form action="/member/join2" method="post" class="form-horizontal">
 		<div class="col-xs-8 col-xs-offset-4">
 			<h2>Sign Up</h2>
 		</div>		
         <div class="form-group">
 			<label class="control-label col-xs-4">Username</label>
 			<div class="col-xs-8">
-                <input type="text" class="form-control" name="username" required="required">
+                <input type="text" class="form-control" name="name" required="required">
             </div>        	
         </div>
 		<div class="form-group">
